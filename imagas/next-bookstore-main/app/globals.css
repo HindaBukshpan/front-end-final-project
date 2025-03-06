@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-skin-base text-skin-dark;
+  }
+  a,
+  button {
+    @apply outline-skin-accent;
+  }
+
+  [data-state="open"] > .dropdown-caret {
+    @apply -rotate-180;
+  }
+  .nav-menu-dropdown:has(> [data-state="open"]) {
+    @apply after:w-full after:opacity-100;
+  }
+  [data-state="open"] > .plus-icon {
+    @apply hidden;
+  }
+  [data-state="closed"] > .minus-icon {
+    @apply hidden;
+  }
+  .main-navigation > div:last-child {
+    @apply flex basis-1/3 justify-end;
+  }
+
+  .shipping-options > div:has(button[data-state="checked"]) {
+    @apply outline outline-skin-accent-dark;
+  }
+
+  .book-desc p {
+    @apply my-2;
+  }
+
+  /* Hide Scrollbar on Cart Dropdown */
+  .cart-dropdown div::-webkit-scrollbar {
+    display: none;
+  }
+  .cart-dropdown div {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Scrollbar for Wishlist */
+  .wishlist-table::-webkit-scrollbar {
+    width: 10px;
+  }
+  .wishlist-table::-webkit-scrollbar-track {
+    @apply bg-skin-base;
+  }
+  .wishlist-table::-webkit-scrollbar-thumb {
+    @apply bg-skin-dark bg-opacity-10;
+  }
+  .wishlist-table::-webkit-scrollbar-thumb:hover {
+    @apply bg-skin-dark bg-opacity-30;
+  }
+}
+
+@layer utilities {
+  .padding-x {
+    @apply px-4 md:px-8;
+  }
+  .max-width {
+    @apply mx-auto max-w-6xl;
+  }
+  .main-container {
+    @apply mx-auto w-full max-w-6xl px-4 py-6 md:px-8;
+  }
+
+  .success {
+    @apply border-teal-500 stroke-teal-500 text-teal-500;
+  }
+  .info {
+    @apply border-cyan-500 text-cyan-500;
+  }
+  .warning {
+    @apply border-amber-500 text-amber-500;
+  }
+  .error {
+    @apply border-rose-600 stroke-rose-600 text-rose-600;
+  }
+}
+
+@layer components {
+  .primary-btn-color {
+    @apply bg-skin-dark text-skin-base 
+    focus-within:bg-opacity-90 focus-within:text-skin-accent 
+    hover:bg-opacity-80 active:bg-opacity-90;
+  }
+  .outline-btn-color {
+    @apply border border-skin-dark text-skin-dark hover:bg-skin-muted;
+  }
+  .disabled-btn {
+    @apply cursor-not-allowed !bg-opacity-70 !text-skin-base;
+  }
+  .text-link {
+    @apply text-skin-dark underline decoration-dashed decoration-from-font underline-offset-2 opacity-80 hover:decoration-solid hover:opacity-100;
+  }
+  .cards-container {
+    @apply my-4 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5;
+  }
+  .nav-menu-dropdown {
+    @apply after:block after:w-0 after:border after:border-skin-accent after:opacity-0 after:transition-all after:duration-300 after:ease-out;
+  }
+  .nav-menu {
+    @apply nav-menu-dropdown after:hover:w-full after:hover:opacity-100;
+  }
+}

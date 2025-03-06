@@ -1,0 +1,88 @@
+.profile {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-input:disabled {
+  background-color: #f4f4f4;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.edit-btn, .save-btn, .delete-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.save-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.delete-btn {
+  width: 100%;
+  background-color: #f44336;
+  color: white;
+}
+
+.login-btn {
+  width: 100px;
+  height: 50px;
+  padding: 0.75rem;
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
