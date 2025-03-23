@@ -38,22 +38,6 @@ export const deleteCurrentUser = () => {
     return axios.delete(`${API_URL}/users`, { headers: getAuthHeaders() });
 }
 
-export const createItem = (item) => {
-    return axios.post(`${API_URL}/items`, item, { headers: getAuthHeaders() });
-}
-
-export const updateItem = (updatedItem) => {
-    return axios.put(`${API_URL}/items`, updatedItem, { headers: getAuthHeaders() });
-}
-
-export const deleteItem = (itemId) => {
-    return axios.delete(`${API_URL}/items/${itemId}`, { headers: getAuthHeaders() });
-}
-
-export const fetchItems = () => {
-    return axios.get(`${API_URL}/items`);
-}
-
 export const adminFetchAllUsers = () => {
     return axios.get(`${API_URL}/admin/all-users`, { headers: getAuthHeaders() });
 }
@@ -70,6 +54,8 @@ export const adminDeleteUserItem = (itemId) => {
     return axios.delete(`${API_URL}/admin/delete-item/${itemId}`, { headers: getAuthHeaders() });
 }
 
+  
+ 
 
 export const createOrder = (orderItem) => {
     return axios.post(`${API_URL}/orders`, orderItem, { headers: getAuthHeaders() });
@@ -114,3 +100,49 @@ export const deleteItemFromWishList = (itemId) => {
 export const deleteAllItemsFromWishList = (username) => {
     return axios.delete(`${API_URL}/wish-list/delete-users-wish-list`, { headers: getAuthHeaders(), data: { username } });
 }
+
+
+
+
+export const updateItem = (updatedItem) => {
+    return axios.put(`${API_URL}/admin/update-item`, updatedItem, { headers: getAuthHeaders() });
+}
+
+export const fetchItems = () => {
+    return axios.get(`${API_URL}/items`);
+}
+
+export const adminAddItem = (item) => {
+    console.log(getAuthHeaders());
+    console.log(item);
+    return axios.post(`${API_URL}/admin/create-item`, item, { headers: getAuthHeaders() });    
+}
+
+export const deleteItem = async (itemId) => {
+    return axios.delete(`${API_URL}/admin/${itemId}`, { headers: getAuthHeaders() });
+};
+
+  
+export const fetchOpenOrder = async (username) => {
+    try {
+      const response = await fetch(`${API_URL}/orders/open?username=${username}`, {
+        headers: getAuthHeaders(),
+      });
+      if (!response.ok) throw new Error('Error fetching open order');
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+};
+
+export const fetchOrderItems = async (orderId) => {
+    try {
+      const response = await fetch(`/api/orders/${orderId}/items`);
+      if (!response.ok) throw new Error('Error fetching order items');
+      return await response.json();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }; 

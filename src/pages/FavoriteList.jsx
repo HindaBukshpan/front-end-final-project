@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 
-// Initial furniture list
 const initialWishListItems = [
   { id: 1, username: 'john_doe', item_id: 101 },
   { id: 2, username: 'jane_smith', item_id: 102 },
@@ -24,7 +23,6 @@ const FavoriteList = () => {
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  // Create
   const handleCreate = () => {
     const newFurniture = {
       ...currentFurniture,
@@ -35,7 +33,6 @@ const FavoriteList = () => {
     handleClose();
   };
 
-  // Update
   const handleUpdate = () => {
     setFurniture(furniture.map(f =>
       f.id === currentFurniture.id
@@ -45,12 +42,10 @@ const FavoriteList = () => {
     handleClose();
   };
 
-  // Delete
   const handleDelete = (id) => {
     setFurniture(furniture.filter(f => f.id !== id));
   };
 
-  // Modal handling
   const handleClose = () => {
     setShowModal(false);
     setCurrentFurniture({ id: null, name: '', category: '', price: '' });
